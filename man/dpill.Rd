@@ -9,8 +9,8 @@ of a local linear Gaussian kernel regression estimate, as described
 by Ruppert, Sheather and Wand (1995). 
 }
 \usage{
-dpill(x, y, blockmax=5, divisor=20, trim=0.01, proptrun=0.05, 
-      gridsize=401, range.x=<<see below>>, truncate=TRUE)
+dpill(x, y, blockmax = 5, divisor = 20, trim = 0.01, proptrun = 0.05, 
+      gridsize = 401, range.x, truncate = TRUE)
 }
 \arguments{
 \item{x}{
@@ -51,8 +51,8 @@ with 5\% of the range added to each end.
 For regression estimation the default is the minimum and maximum data values.
 }
 \item{truncate}{
-logical flag: if \code{TRUE}, data with \code{x} values outside the range specified
-by \code{range.x} are ignored.
+  logical flag: if \code{TRUE}, data with \code{x} values outside the
+  range specified by \code{range.x} are ignored.
 }}
 \value{
 the selected bandwidth.
@@ -89,12 +89,12 @@ Chapman and Hall, London.
 \code{\link{ksmooth}}, \code{\link{locpoly}}.
 }
 \examples{
-data(geyser, package="MASS")
+data(geyser, package = "MASS")
 x <- geyser$duration
 y <- geyser$waiting
 plot(x, y)
 h <- dpill(x, y)
-fit <- locpoly(x, y, bandwidth=h)
+fit <- locpoly(x, y, bandwidth = h)
 lines(fit)
 }
 \keyword{smooth}

@@ -10,9 +10,9 @@ using local polynomials. A fast binned implementation
 over an equally-spaced grid is used.
 }
 \usage{
-locpoly(x, y, drv=0, degree=<<see below>>, kernel="normal", 
-        bandwidth, gridsize=401, bwdisc=25, 
-        range.x=<<see below>>,  binned=FALSE, truncate=TRUE)
+locpoly(x, y, drv = 0, degree =, kernel = "normal", 
+        bandwidth, gridsize = 401, bwdisc = 25, 
+        range.x, binned = FALSE, truncate = TRUE)
 }
 \arguments{
 \item{x}{
@@ -101,14 +101,14 @@ Chapman and Hall, London.
   \code{\link{supsmu}}.
 }
 \examples{
-data(geyser, package="MASS")
+data(geyser, package = "MASS")
 x <- geyser$duration
-est <- locpoly(x,bandwidth=0.25)
-plot(est,type="l")
+est <- locpoly(x, bandwidth = 0.25)
+plot(est, type = "l")
 # local linear density estimate
 y <- geyser$waiting
-plot(x,y)
-fit <- locpoly(x,y,bandwidth=0.25)
+plot(x, y)
+fit <- locpoly(x, y, bandwidth = 0.25)
 lines(fit)
 # local linear regression estimate
 }

@@ -9,8 +9,8 @@ kernel density estimate of the probability
 density of the data.  
 }
 \usage{
-bkde(x, kernel="normal", canonical=FALSE, bandwidth,
-     gridsize=401, range.x, truncate=TRUE)
+bkde(x, kernel = "normal", canonical = FALSE, bandwidth,
+     gridsize = 401, range.x, truncate = TRUE)
 }
 \arguments{
 \item{x}{

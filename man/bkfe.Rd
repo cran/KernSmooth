@@ -9,7 +9,8 @@ the kernel estimate of the specified density functional.
 The kernel is the standard normal density.
 }
 \usage{
-bkfe(x, drv, bandwidth, gridsize=401, range.x, binned=FALSE, truncate=TRUE)
+bkfe(x, drv, bandwidth, gridsize = 401, range.x, binned = FALSE,
+     truncate = TRUE)
 }
 \arguments{
 \item{x}{
