@@ -25,3 +25,8 @@ Version 2.22-5
 1.2.0 and later require BLAS_LIBS set.
 
 Add help for geyser (from package MASS).
+
+Version 2.22-7
+==============
+
+cp.f was calling dqrdc incorrectly.

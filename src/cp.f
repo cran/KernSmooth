@@ -47,7 +47,7 @@ c           Set up "X" matrix
 60             continue
 50          continue
 
-            call dqrdc(Xmat,n,nj,qq,qraux,0,0,0)
+            call dqrdc(Xmat,n,nj,qq,qraux,0,0d0,0)
       info=0
       call dqrsl(Xmat,n,nj,qq,qraux,Yj,wk,wk,coef,wk,wk,00100,info)
 
