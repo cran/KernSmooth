@@ -9,8 +9,7 @@ the kernel estimate of the specified density functional.
 The kernel is the standard normal density.
 }
 \usage{
-bkfe(x, drv, bandwidth, gridsize=401, range.x=range(x),
-     binned=FALSE, truncate=FALSE)
+bkfe(x, drv, bandwidth, gridsize=401, range.x, binned=FALSE, truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -32,7 +31,8 @@ performed.
 \item{range.x}{
 vector containing the minimum and maximum values of \code{x}
 at which to compute the estimate.
-The default is the minimum and maximum data values.
+The default is the minimum and maximum data values, extended by the
+support of the kernel.
 }
 \item{binned}{
 logical flag: if \code{TRUE}, then \code{x} and \code{y} are taken to be grid counts

@@ -10,7 +10,7 @@ density of the data.
 }
 \usage{
 bkde(x, kernel="normal", canonical=FALSE, bandwidth,
-     gridsize=401, range.x=range(x), truncate=TRUE)
+     gridsize=401, range.x, truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -42,7 +42,8 @@ the density.
 \item{range.x}{
 vector containing the minimum and maximum values of \code{x}
 at which to compute the estimate.
-The default is the minimum and maximum data values.
+The default is the minimum and maximum data values, extended by the
+support of the kernel.
 }
 \item{truncate}{
 logical flag: if \code{TRUE}, data with \code{x} values outside the

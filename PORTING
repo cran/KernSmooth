@@ -26,12 +26,42 @@ R 1.2.0 and later require BLAS_LIBS set.
 
 Add help for geyser (from package MASS).
 
+
 Version 2.22-7
 ==============
 
 cp.f was calling dqrdc incorrectly.
 
+
 Version 2.22-8
 ==============
 
 Use * for array bounds in Fortran
+
+
+Version 2.22-9
+==============
+
+Remove dataset geyser and get it from MASS
+Use 0.0d0 not dble(0).
+
+
+Version 2.22-10
+===============
+
+Add namespace
+
+
+Version 2.22-11
+===============
+
+Add .onUnload, require R 1.8.0.
+Remove some unused assignments, use sort.list rather than order.
+
+
+Version 2.22-12
+===============
+
+Update Matt Wand's URL.
+Correct default values in help files (and descriptions thereof)
+
