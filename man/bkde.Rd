@@ -9,8 +9,8 @@ kernel density estimate of the probability
 density of the data.  
 }
 \usage{
-bkde (x,kernel="normal",canonical=F,bandwidth,
-      gridsize=401,range.x=range(x),truncate=T)
+bkde(x, kernel="normal", canonical=FALSE, bandwidth,
+     gridsize=401, range.x=range(x), truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -33,7 +33,7 @@ character string which determines the smoothing kernel.
 \code{"triweight"} - the centred beta(4,4) density.
 }
 \item{canonical}{
-logical flag: if TRUE, canonically scaled kernels are used.
+logical flag: if \code{TRUE}, canonically scaled kernels are used.
 }
 \item{gridsize}{
 the number of equally spaced points at which to estimate
@@ -58,14 +58,14 @@ vector of sorted \code{x} values at which the estimate was computed.
 vector of density estimates
 at the corresponding \code{x}.
 }}
-\section{Details}{
+\details{
 This is the binned approximation to the ordinary kernel density estimate.
 Linear binning is used to obtain the bin counts.  
 For each \code{x} value in the sample, the kernel is
 centered on that \code{x} and the heights of the kernel at each datapoint are summed.
 This sum, after a normalization, is the corresponding \code{y} value in the output.
 }
-\section{BACKGROUND}{
+\section{Background}{
 Density estimation is a smoothing operation.
 Inevitably there is a trade-off between bias in the estimate and the
 estimate's variability: large bandwidths will produce smooth estimates that
@@ -78,15 +78,15 @@ Wand, M. P. and Jones, M. C. (1995).
 Chapman and Hall, London.
 }
 \seealso{
-\code{\link{density}}, \code{\link{dpik}}, \code{\link{hist}}, \code{\link{ksmooth}}.
+  \code{\link{density}}, \code{\link{dpik}}, \code{\link{hist}},
+  \code{\link[mva]{ksmooth}}.
 }
 \examples{
 data(geyser)
 x <- geyser$duration
-est <- bkde(x,bandwidth=0.25)
-plot(est,type="l")
+est <- bkde(x, bandwidth=0.25)
+plot(est, type="l")
 }
-\keyword{density}
 \keyword{distribution}
 \keyword{smooth}
 % Converted by Sd2Rd version 0.2-a5.

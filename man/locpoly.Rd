@@ -12,7 +12,7 @@ over an equally-spaced grid is used.
 \usage{
 locpoly(x, y, drv=0, degree=<<see below>>, kernel="normal", 
         bandwidth, gridsize=401, bwdisc=25, 
-        range.x=<<see below>>,  binned=F, truncate=T)
+        range.x=<<see below>>,  binned=FALSE, truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -96,7 +96,9 @@ Wand, M. P. and Jones, M. C. (1995).
 Chapman and Hall, London.
 }
 \seealso{
-\code{\link{bkde}}, \code{\link{density}}, \code{\link{dpill}}, \code{\link{ksmooth}}, \code{\link{loess}}, \code{\link{smooth}}, \code{\link{supsmu}}.
+  \code{\link{bkde}}, \code{\link{density}}, \code{\link{dpill}},
+  \code{\link{ksmooth}}, \code{\link{loess}}, \code{\link{smooth}},
+  \code{\link{supsmu}}.
 }
 \examples{
 data(geyser)

@@ -11,7 +11,7 @@ density.
 }
 \usage{
 bkde2D(x, bandwidth, gridsize=c(51, 51), range.x=<<see below>>, 
-       truncate=T)
+       truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -78,14 +78,16 @@ Wand, M. P. and Jones, M. C. (1995).
 Chapman and Hall, London.
 }
 \seealso{
-\code{\link{bkde}}, \code{\link{density}}, \code{\link{hist}}, \code{\link{ksmooth}}.
+  \code{\link{bkde}}, \code{\link{density}}, \code{\link{hist}},
+  \code{\link[mva]{ksmooth}}.
 }
 \examples{
 data(geyser)
-x <- cbind(geyser$duration,geyser$waiting)
-est <- bkde2D(x,bandwidth=c(0.7,7))
-contour(est$x1,est$x2,est$fhat)
-# persp(est$fhat) ## not yet in R
+x <- cbind(geyser$duration, geyser$waiting)
+est <- bkde2D(x, bandwidth=c(0.7,7))
+contour(est$x1, est$x2, est$fhat)
+persp(est$fhat)
 }
+\keyword{distribution}
 \keyword{smooth}
 % Converted by Sd2Rd version 0.2-a5.

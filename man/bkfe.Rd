@@ -10,7 +10,7 @@ The kernel is the standard normal density.
 }
 \usage{
 bkfe(x, drv, bandwidth, gridsize=401, range.x=range(x),
-     binned=F, truncate=F)
+     binned=FALSE, truncate=FALSE)
 }
 \arguments{
 \item{x}{
@@ -45,14 +45,14 @@ range specified by \code{range.x} are ignored.
 \value{
 the estimated functional.
 }
-\section{Details}{
+\details{
 The density functional of order \code{drv} is the integral of the
 product of the density and its \code{drv}th derivative. 
 The kernel estimates
 of such quantities are computed using a binned implementation,
 and the kernel is the standard normal density.
 }
-\section{BACKGROUND}{
+\section{Background}{
 Estimates of this type were proposed by Sheather and
 Jones (1991).
 }
@@ -60,9 +60,8 @@ Jones (1991).
 Sheather, S. J. and Jones, M. C. (1991).
 A reliable data-based bandwidth selection method for
 kernel density estimation.
-\emph{Journal of the Royal Statistical Society, Series B,}
-\bold{53}, 683-690.
-
+\emph{Journal of the Royal Statistical Society, Series B},
+\bold{53}, 683--690.
 
 Wand, M. P. and Jones, M. C. (1995).
 \emph{Kernel Smoothing.}
@@ -71,7 +70,7 @@ Chapman and Hall, London.
 \examples{
 data(geyser)
 x <- geyser$duration
-est <- bkfe(x,drv=4,bandwidth=0.3)
+est <- bkfe(x, drv=4, bandwidth=0.3)
 }
 \keyword{smooth}
 % Converted by Sd2Rd version 0.2-a5.

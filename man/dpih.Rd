@@ -9,7 +9,7 @@ a histogram.
 }
 \usage{
 dpih(x, scalest="minim", level=2, gridsize=401, 
-     range.x=range(x), truncate=F)
+     range.x=range(x), truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -19,16 +19,11 @@ histogram is to be constructed.
 \item{scalest}{
 estimate of scale.
 
-
  \code{"stdev"} - standard deviation is used.
-
 
  \code{"iqr"} - inter-quartile range divided by 1.349 is used.
 
-
  \code{"minim"} - minimum of \code{"stdev"} and \code{"iqr"} is used.
-
-
 }
 \item{level}{
 number of levels of functional estimation used in the
@@ -50,7 +45,7 @@ Otherwise, they are used to weight the extreme grid points.
 \value{
 the selected bin width.
 }
-\section{Details}{
+\details{
 The direct plug-in approach, where unknown functionals
 that appear in expressions for the asymptotically
 optimal bin width and bandwidths
@@ -58,7 +53,7 @@ are replaced by kernel estimates, is used.
 The normal distribution is used to provide an
 initial estimate.
 }
-\section{BACKGROUND}{
+\section{Background}{
 This method for selecting the bin width of a histogram is
 described in Wand (1995). It is an extension of the
 normal scale rule of Scott (1979) and uses plug-in ideas
@@ -68,32 +63,30 @@ from bandwidth selection for kernel density estimation
 \references{
 Scott, D. W. (1979). 
 On optimal and data-based histograms.
-\emph{Biometrika, }
-\bold{66}, 605-610.
-
+\emph{Biometrika},
+\bold{66}, 605--610.
 
 Sheather, S. J. and Jones, M. C. (1991).
 A reliable data-based bandwidth selection method for
 kernel density estimation.
-\emph{Journal of the Royal Statistical Society, Series B,}
-\bold{53}, 683-690. 
-
+\emph{Journal of the Royal Statistical Society, Series B},
+\bold{53}, 683--690. 
 
 Wand, M. P. (1995).
 Data-based choice of histogram binwidth.
-\emph{University of New South Wales,}
+\emph{University of New South Wales},
 Australian Graduate School of Management 
-Working Paper Series No. 95-011.
+Working Paper Series No. 95--011.
 }
 \seealso{
-\code{\link{hist}}
+  \code{\link{hist}}
 }
 \examples{
 data(geyser)
 x <- geyser$duration
 h <- dpih(x)
-bins <- seq(min(x)-0.1,max(x)+0.1+h,by=h)
-hist(x,breaks=bins)
+bins <- seq(min(x)-0.1, max(x)+0.1+h, by=h)
+hist(x, breaks=bins)
 }
 \keyword{smooth}
 % Converted by Sd2Rd version 0.2-a5.

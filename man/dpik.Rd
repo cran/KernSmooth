@@ -9,8 +9,8 @@ of a kernel density estimate.
 }
 \usage{
 dpik(x, scalest="minim", level=2, kernel="normal",   
-     canonical=F, gridsize=401, range.x=range(x), 
-     truncate=F)
+     canonical=FALSE, gridsize=401, range.x=range(x), 
+     truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -20,12 +20,9 @@ kernel density estimate is to be constructed.
 \item{scalest}{
 estimate of scale.
 
-
  \code{"stdev"} - standard deviation is used.
 
-
  \code{"iqr"} - inter-quartile range divided by 1.349 is used.
-
 
  \code{"minim"} - minimum of \code{"stdev"} and \code{"iqr"} is used.
 }
@@ -61,7 +58,7 @@ range specified by \code{range.x} are ignored.
 \value{
 the selected bandwidth.
 }
-\section{Details}{
+\details{
 The direct plug-in approach, where unknown functionals
 that appear in expressions for the asymptotically
 optimal bandwidths
@@ -69,7 +66,7 @@ are replaced by kernel estimates, is used.
 The normal distribution is used to provide an
 initial estimate.
 }
-\section{BACKGROUND}{
+\section{Background}{
 This method for selecting the bandwidth of a kernel
 density estimate was proposed by Sheather and
 Jones (1991)
@@ -80,9 +77,8 @@ described in Section 3.6 of Wand and Jones (1995).
 Sheather, S. J. and Jones, M. C. (1991).
 A reliable data-based bandwidth selection method for
 kernel density estimation.
-\emph{Journal of the Royal Statistical Society, Series B,}
-\bold{53}, 683-690.
-
+\emph{Journal of the Royal Statistical Society, Series B},
+\bold{53}, 683--690.
 
 Wand, M. P. and Jones, M. C. (1995).
 \emph{Kernel Smoothing.}

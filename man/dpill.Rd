@@ -10,7 +10,7 @@ by Ruppert, Sheather and Wand (1995).
 }
 \usage{
 dpill(x, y, blockmax=5, divisor=20, trim=0.01, proptrun=0.05, 
-      gridsize=401, range.x=<<see below>>, truncate=T)
+      gridsize=401, range.x=<<see below>>, truncate=TRUE)
 }
 \arguments{
 \item{x}{
@@ -57,17 +57,17 @@ by \code{range.x} are ignored.
 \value{
 the selected bandwidth.
 }
-\section{Details}{
+\details{
 The direct plug-in approach, where unknown functionals
 that appear in expressions for the asymptotically
 optimal bandwidths
 are replaced by kernel estimates, is used.
 The kernel is the standard normal density.
 Least squares quartic fits over blocks of data are used to 
-obtain an initial estimate. Mallow's Cp is used to select
+obtain an initial estimate. Mallow's \eqn{C_p}{Cp} is used to select
 the number of blocks.
 }
-\section{WARNING}{
+\section{Warning}{
 If there are severe irregularities (i.e. outliers, sparse regions)
 in the \code{x} values then the local polynomial smooths required for the
 bandwidth selection algorithm may become degenerate and the function
@@ -78,9 +78,8 @@ of the quality of the selected bandwidth.
 Ruppert, D., Sheather, S. J. and Wand, M. P. (1995).
 An effective bandwidth selector for local least squares
 regression.
-\emph{Journal of the American Statistical Association,}
-\bold{90}, 1257-1270.
-
+\emph{Journal of the American Statistical Association},
+\bold{90}, 1257--1270.
 
 Wand, M. P. and Jones, M. C. (1995).
 \emph{Kernel Smoothing.}
@@ -93,9 +92,9 @@ Chapman and Hall, London.
 data(geyser)
 x <- geyser$duration
 y <- geyser$waiting
-plot(x,y)
-h <- dpill(x,y)
-fit <- locpoly(x,y,bandwidth=h)
+plot(x, y)
+h <- dpill(x, y)
+fit <- locpoly(x, y, bandwidth=h)
 lines(fit)
 }
 \keyword{smooth}
