@@ -18,3 +18,10 @@ KernSmooth/man:
 Quote many S objects.
 Create files via Sd2Rd.
 Add data(geyser) as required.
+
+Version 2.22-5
+==============
+
+1.2.0 and later require BLAS_LIBS set.
+
+Add help for geyser (from package MASS).
