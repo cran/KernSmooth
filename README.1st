@@ -1,6 +1,0 @@
-By a quirk of R, you may need to add -lblas to the link if R
-itself was compiled with -lblas. If so, uncomment the line
-#LIBS=-lblas in src/Makefile.  
-
-The symptom is that R will be killed with a missing symbol
-referenced by KernSmooth.so.
