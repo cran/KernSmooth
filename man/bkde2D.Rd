@@ -78,8 +78,7 @@ Wand, M. P. and Jones, M. C. (1995).
 Chapman and Hall, London.
 }
 \seealso{
-  \code{\link{bkde}}, \code{\link{density}}, \code{\link{hist}},
-  \code{\link[mva]{ksmooth}}.
+  \code{\link{bkde}}, \code{\link{density}}, \code{\link{hist}}.
 }
 \examples{
 data(geyser, package="MASS")

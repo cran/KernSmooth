@@ -1,1 +1,2 @@
 export(bkde, bkde2D, bkfe, dpih, dpik,  dpill, locpoly)
+importFrom(stats, dnorm, quantile, var)

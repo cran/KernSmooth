@@ -80,7 +80,7 @@ Chapman and Hall, London.
 }
 \seealso{
   \code{\link{density}}, \code{\link{dpik}}, \code{\link{hist}},
-  \code{\link[mva]{ksmooth}}.
+  \code{\link{ksmooth}}.
 }
 \examples{
 data(geyser, package="MASS")
