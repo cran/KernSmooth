@@ -1,5 +1,5 @@
 Package: KernSmooth
-Version: 2.22-2
+Version: 2.22-3
 Author: S original (http://www.biostat.harvard.edu/~mwand) by Matt Wand.
   R port by  Brian Ripley <ripley@stats.ox.ac.uk>.
 Description: functions for kernel smoothing (and density estimation)
