@@ -101,7 +101,7 @@ Chapman and Hall, London.
   \code{\link{supsmu}}.
 }
 \examples{
-data(geyser)
+data(geyser, package="MASS")
 x <- geyser$duration
 est <- locpoly(x,bandwidth=0.25)
 plot(est,type="l")

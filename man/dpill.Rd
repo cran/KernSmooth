@@ -89,7 +89,7 @@ Chapman and Hall, London.
 \code{\link{ksmooth}}, \code{\link{locpoly}}.
 }
 \examples{
-data(geyser)
+data(geyser, package="MASS")
 x <- geyser$duration
 y <- geyser$waiting
 plot(x, y)

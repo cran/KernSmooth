@@ -9,16 +9,16 @@ c     Last changed: 26/04/95
       subroutine blkest(X,Y,n,q,qq,Nval,Xj,Yj,coef,Xmat,wk,qraux,
      +                  sigsqe,th22e,th24e) 
 
-      integer n,q,qq,Nval,nj,i,j,k,idiv,ilow,iupp
+      integer n,q,qq,Nval,nj,i,j,k,idiv,ilow,iupp,info
       double precision RSS,X(n),Y(n),Xj(n),Yj(n),coef(qq),wk(n),
      +                 Xmat(n,qq),qraux(qq),fiti,th22e,th24e,sigsqe,
      +                 ddm,ddddm   
   
 c     It is assumed that the (X,Y) data are
 c     sorted with respect to the X's.
-      RSS = dble(0)
-      th22e = dble(0)
-      th24e = dble(0)
+      RSS = 0.0d0
+      th22e = 0.0d0
+      th24e = 0.0d0
       idiv = n/Nval
       do 10 j = 1,Nval
 

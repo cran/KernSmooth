@@ -1092,7 +1092,7 @@ sstdiag <- function(x,drv=0,degree=1,kernel="normal",
 
 # S-PLUS .First.lib function for ModuleX
 
-.First.lib <- function(lib, pkg)
+.onLoad <- function(lib, pkg)
 {
    library.dynam("KernSmooth", pkg, lib)
    cat("KernSmooth 2.22 installed\n")

@@ -68,7 +68,7 @@ Wand, M. P. and Jones, M. C. (1995).
 Chapman and Hall, London.
 }
 \examples{
-data(geyser)
+data(geyser, package="MASS")
 x <- geyser$duration
 est <- bkfe(x, drv=4, bandwidth=0.3)
 }

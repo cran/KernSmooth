@@ -88,7 +88,7 @@ Chapman and Hall, London.
 \code{\link{bkde}}, \code{\link{density}}, \code{\link{ksmooth}}
 }
 \examples{
-data(geyser)
+data(geyser, package="MASS")
 x <- geyser$duration
 h <- dpik(x)
 est <- bkde(x,bandwidth=h)

@@ -82,7 +82,7 @@ Chapman and Hall, London.
   \code{\link[mva]{ksmooth}}.
 }
 \examples{
-data(geyser)
+data(geyser, package="MASS")
 x <- geyser$duration
 est <- bkde(x, bandwidth=0.25)
 plot(est, type="l")
