@@ -1,6 +1,6 @@
       subroutine dgesl(a,lda,n,ipvt,b,job)
-      integer lda,n,ipvt(1),job
-      double precision a(lda,1),b(1)
+      integer lda,n,ipvt(*),job
+      double precision a(lda,*),b(*)
 c
 c     dgesl solves the double precision system
 c     a * x = b  or  trans(a) * x = b

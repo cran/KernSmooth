@@ -22,7 +22,7 @@ Add data(geyser) as required.
 Version 2.22-5
 ==============
 
-1.2.0 and later require BLAS_LIBS set.
+R 1.2.0 and later require BLAS_LIBS set.
 
 Add help for geyser (from package MASS).
 
@@ -30,3 +30,8 @@ Version 2.22-7
 ==============
 
 cp.f was calling dqrdc incorrectly.
+
+Version 2.22-8
+==============
+
+Use * for array bounds in Fortran
