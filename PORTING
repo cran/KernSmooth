@@ -1,0 +1,20 @@
+KernSmooth/src:
+
+add simple Makefile.
+add LINPACK routines dgefa.f and dgesl.f
+alter blkest.f and cp.f so that the last argument of dqrsl (info)
+ is a varaible not a constant as it if used on output.
+
+KernSmooth/data:
+
+Add dump of `geyser' example from  Azzalini & Bowman.
+
+KernSmooth/R:
+
+Alter .First.lib to R form.
+
+KernSmooth/man:
+
+Quote many S objects.
+Create files via Sd2Rd.
+Add data(geyser) as required.
