@@ -356,7 +356,6 @@ dpih <- function(x,scalest="minim",level=2,gridsize=401,range.x=range(x),
 
    gpoints <- seq(a,b,length=M)
    gcounts <- linbin(x,gpoints,truncate)
-   delta <- (b-a)/(M-1)
 
    # Compute scale estimate
 
@@ -464,7 +463,6 @@ dpik <- function(x,scalest="minim",level=2,kernel="normal",
 
    gpoints <- seq(a,b,length=M)
    gcounts <- linbin(x,gpoints,truncate)
-   delta <- (b-a)/(M-1)
 
    # Compute scale estimate
 
@@ -554,8 +552,7 @@ dpill <- function(x,y,blockmax=5,divisor=20,trim=0.01,proptrun=0.05,gridsize=401
    # Trim the 100(trim)% of the data from each end (in the x-direction).
 
    xy <- cbind(x,y)
-#   xy <- xy[sort.list(xy[,1]),]
-   xy <- xy[order(xy[,1]),]
+   xy <- xy[sort.list(xy[,1]),]
    x <- xy[,1]
    y <- xy[,2]
    indlow <- floor(trim*length(x)) + 1
@@ -570,7 +567,6 @@ dpill <- function(x,y,blockmax=5,divisor=20,trim=0.01,proptrun=0.05,gridsize=401
    M <- gridsize
    a <- range.x[1]
    b <- range.x[2]
-   delta <- (b-a)/(M-1)
 
    # Bin the data
 
@@ -590,7 +586,6 @@ dpill <- function(x,y,blockmax=5,divisor=20,trim=0.01,proptrun=0.05,gridsize=401
 
    out <- blkest(x,y,Nval,4)
    sigsqQ <- out$sigsqe
-   th22Q <- out$th22e
    th24Q <- out$th24e
 
    # Estimate theta_22 using a local cubic fit
@@ -1098,5 +1093,8 @@ sstdiag <- function(x,drv=0,degree=1,kernel="normal",
    cat("KernSmooth 2.22 installed\n")
    cat("Copyright M. P. Wand 1997\n")
 }
+
+.onUnload <- function(libpath)
+    library.dynam.unload("KernSmooth", libpath)
 
 ############# End of .First.lib ###############
