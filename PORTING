@@ -65,3 +65,27 @@ Version 2.22-12
 Update Matt Wand's URL.
 Correct default values in help files (and descriptions thereof)
 
+
+Version 2.22-13
+===============
+
+Version for 1.9.0 with re-organized packages.
+
+
+Version 2.22-14
+===============
+
+Use Suggests: in DESCRIPTION
+
+
+Version 2.22-15
+===============
+
+Don't use <<see below>> in help files.
+
+
+Version 2.22-16
+===============
+
+Use stop() for errors.  Add .pot file.
+Use registration mechanism, only usable after svn r36365

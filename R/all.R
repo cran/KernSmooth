@@ -801,8 +801,7 @@ locpoly <- function(x,y,drv=0,degree,kernel="normal",
    }
    else
    {
-      print("Bandwidth must be a scalar or an array of length gridsize")
-      return()
+      stop("Bandwidth must be a scalar or an array of length gridsize")
    }
 
    # Allocate space for the kernel vector and final estimate
@@ -940,8 +939,7 @@ sdiag <- function(x,drv=0,degree=1,kernel="normal",
    }
    else
    {
-      print("Bandwidth must be a scalar or an array of length gridsize")
-      return()
+      stop("Bandwidth must be a scalar or an array of length gridsize")
    }
 
    dimfkap <- 2*sum(Lvec) + Q
@@ -1052,8 +1050,7 @@ sstdiag <- function(x,drv=0,degree=1,kernel="normal",
    }
    else
    {
-      print("Bandwidth must be a scalar or an array of length gridsize")
-      return()
+      stop("Bandwidth must be a scalar or an array of length gridsize")
    }
 
    dimfkap <- 2*sum(Lvec) + Q
