@@ -281,11 +281,11 @@ blkest <- function(x,y,Nval,q)
    th22e <- 0
    th24e <- 0
 
-   out <- .Fortran("blkest",as.double(x),as.double(y),as.integer(n),
+   out <- .Fortran(F_blkest,as.double(x),as.double(y),as.integer(n),
                     as.integer(q),as.integer(qq),as.integer(Nval),as.double(xj),
                     as.double(yj),as.double(coef),as.double(Xmat),as.double(wk),
                     as.double(qraux),as.double(sigsqe),as.double(th22e),
-                    as.double(th24e), PACKAGE="KernSmooth")
+                    as.double(th24e))
 
    return(list(sigsqe=out[[13]],th22e=out[[14]],th24e=out[[15]]))
 
@@ -325,10 +325,10 @@ cpblock <- function(X,Y,Nmax,q)
    wk <- rep(0,n)
    qraux <- rep(0,qq)
 
-   out <- .Fortran("cp",as.double(X),as.double(Y),as.integer(n),as.integer(q),
+   out <- .Fortran(F_cp,as.double(X),as.double(Y),as.integer(n),as.integer(q),
                    as.integer(qq),as.integer(Nmax),as.double(RSS),as.double(Xj),
                    as.double(Yj),as.double(coef),as.double(Xmat),as.double(wk),
-                   as.double(qraux),as.double(Cpvals), PACKAGE="KernSmooth")
+                   as.double(qraux),as.double(Cpvals))
 
    Cpvec <- out[[14]]
    Nval <- order(Cpvec)[1]
@@ -651,9 +651,9 @@ linbin <- function(X,gpoints,truncate=TRUE)
    if (truncate) trun <- 1
    a <- gpoints[1]
    b <- gpoints[M]
-   out <- .Fortran("linbin",as.double(X),as.integer(n),
+   out <- .Fortran(F_linbin,as.double(X),as.integer(n),
            as.double(a),as.double(b),as.integer(M),
-           as.integer(trun),double(M), PACKAGE="KernSmooth")
+           as.integer(trun),double(M))
    return(out[[7]])
 }
 
@@ -678,9 +678,9 @@ linbin2D <- function(X,gpoints1,gpoints2)
    a2 <- gpoints2[1]
    b1 <- gpoints1[M1]
    b2 <- gpoints2[M2]
-   out <- .Fortran("lbtwod",as.double(X),as.integer(n),
+   out <- .Fortran(F_lbtwod,as.double(X),as.integer(n),
            as.double(a1),as.double(a2),as.double(b1),as.double(b2),
-           as.integer(M1),as.integer(M2),double(M1*M2), PACKAGE="KernSmooth")
+           as.integer(M1),as.integer(M2),double(M1*M2))
    return(matrix(out[[9]],M1,M2))
 }
 
@@ -818,13 +818,13 @@ locpoly <- function(x,y,drv=0,degree,kernel="normal",
 
    # Call FORTRAN routine "locpol"
 
-   out <- .Fortran("locpol",as.double(xcounts),as.double(ycounts),
+   out <- .Fortran(F_locpol,as.double(xcounts),as.double(ycounts),
                   as.integer(drv),as.double(delta),as.double(hdisc),
                   as.integer(Lvec),as.integer(indic),as.integer(midpts),
                   as.integer(M),as.integer(Q),as.double(fkap),as.integer(pp),
                   as.integer(ppp),as.double(ss),as.double(tt),
                   as.double(Smat),as.double(Tvec),as.integer(ipvt),
-                  as.double(curvest), PACKAGE="KernSmooth")
+                  as.double(curvest))
 
    curvest <- gamma(drv+1)*out[[19]]
 
@@ -848,9 +848,9 @@ rlbin <- function(X,Y,gpoints,truncate=TRUE)
    else trun <- 0
    a <- gpoints[1]
    b <- gpoints[M]
-   out <- .Fortran("rlbin",as.double(X),as.double(Y),as.integer(n),
+   out <- .Fortran(F_rlbin,as.double(X),as.double(Y),as.integer(n),
            as.double(a),as.double(b),as.integer(M),as.integer(trun),
-           double(M),double(M), PACKAGE="KernSmooth")
+           double(M),double(M))
    return(list(xcounts=out[[8]],ycounts=out[[9]]))
 }
 
@@ -952,12 +952,12 @@ sdiag <- function(x,drv=0,degree=1,kernel="normal",
    ipvt <- rep(0,pp)
    Sdg <- rep(0,M)
 
-   out <- .Fortran("sdiag",as.double(xcounts),as.double(delta),
+   out <- .Fortran(F_sdiag,as.double(xcounts),as.double(delta),
                     as.double(hdisc),as.integer(Lvec),as.integer(indic),
                     as.integer(midpts),as.integer(M),as.integer(Q),
                     as.double(fkap),as.integer(pp),as.integer(ppp),
                     as.double(ss),as.double(Smat),as.double(work),
-                    as.double(det),as.integer(ipvt),as.double(Sdg), PACKAGE="KernSmooth")
+                    as.double(det),as.integer(ipvt),as.double(Sdg))
 
    Sdg <- out[[17]]
 
@@ -1065,13 +1065,13 @@ sstdiag <- function(x,drv=0,degree=1,kernel="normal",
    ipvt <- rep(0,pp)
    SSTd <- rep(0,M)
 
-   out <- .Fortran("sstdg",as.double(xcounts),as.double(delta),
+   out <- .Fortran(F_sstdg,as.double(xcounts),as.double(delta),
                     as.double(hdisc),as.integer(Lvec),as.integer(indic),
                     as.integer(midpts),as.integer(M),as.integer(Q),
                     as.double(fkap),as.integer(pp),as.integer(ppp),
                     as.double(ss),as.double(uu),as.double(Smat),
                     as.double(Umat),as.double(work),as.double(det),
-                    as.integer(ipvt),as.double(SSTd), PACKAGE="KernSmooth")
+                    as.integer(ipvt),as.double(SSTd))
 
    SSTd <- out[[19]]
 
@@ -1086,7 +1086,6 @@ sstdiag <- function(x,drv=0,degree=1,kernel="normal",
 
 .onLoad <- function(lib, pkg)
 {
-   library.dynam("KernSmooth", pkg, lib)
    cat("KernSmooth 2.22 installed\n")
    cat("Copyright M. P. Wand 1997\n")
 }
