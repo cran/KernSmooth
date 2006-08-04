@@ -89,3 +89,8 @@ Version 2.22-16
 
 Use stop() for errors.  Add .pot file.
 Use registration mechanism, only usable after svn r36365
+
+Version 2.22-18
+===============
+
+Use FLIBS in PKG_LIBS, in case needed.

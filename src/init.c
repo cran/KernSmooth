@@ -41,7 +41,7 @@ void F77_SUB(sstdg)(double *xcounts, double *delta,
 		    double *ss, double *uu, double *smat, double *umat, 
 		    double *work, double *det, int *ipvt, double *sstd);
 
-static R_FortranMethodDef FortEntries[] = {
+static const R_FortranMethodDef FortEntries[] = {
     {"blkest", (DL_FUNC) &F77_SUB(blkest), 15},
     {"cp",     (DL_FUNC) &F77_SUB(cp),     14},
     {"linbin", (DL_FUNC) &F77_SUB(linbin),  7},
