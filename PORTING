@@ -94,3 +94,8 @@ Version 2.22-18
 ===============
 
 Use FLIBS in PKG_LIBS, in case needed.
+
+Version 2.22-20
+===============
+
+Use packageStartupMessage() not cat() in startup message
