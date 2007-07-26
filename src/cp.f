@@ -1,3 +1,9 @@
+c  Part of R package KernSmooth
+c  Copyright (C) 1995  M. P. Wand
+c  Copyright (C) 2007  B. D. Ripley
+c
+c  Unlimited use and distribution (see LICENCE).
+
 cccccccc FORTRAN subroutine cp.f cccccccccc
 
 c     For computing Mallow's C_p values for a
@@ -5,8 +11,9 @@ c     set of "Nmax" blocked q'th degree fits.
 
 c     Last changed: 09/05/95 
 
-      subroutine cp(X,Y,n,q,qq,Nmax,RSS,Xj,Yj,coef,Xmat,wk,qraux,Cpvals)
-      integer Nmax,n,q,qq,Nval,nj,i,j,k,idiv,ilow,iupp
+c     remove unused 'q' 2007-07-10
+      subroutine cp(X,Y,n,qq,Nmax,RSS,Xj,Yj,coef,Xmat,wk,qraux,Cpvals)
+      integer Nmax,n,qq,Nval,nj,i,j,k,idiv,ilow,iupp
       double precision RSS(Nmax),X(n),Y(n),Xj(n),Yj(n),coef(qq),wk(n),
      +                 Xmat(n,qq),qraux(qq),Cpvals(NMax),fiti,RSSj
 

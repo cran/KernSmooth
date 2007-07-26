@@ -1,3 +1,8 @@
+c  Part of R package KernSmooth
+c  Copyright (C) 1995  M. P. Wand
+c
+c  Unlimited use and distribution (see LICENCE).
+
 cccccccc FORTRAN subroutine blkest.f cccccccccc
 
 c     For computing blocked polynomial estimates

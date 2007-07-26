@@ -1,3 +1,8 @@
+c  Part of R package KernSmooth
+c  Copyright (C) 1995  M. P. Wand
+c
+c  Unlimited use and distribution (see LICENCE).
+
 cccccccccc FORTRAN subroutine locpol.f cccccccccc
 
 c For computing an binned approximation to a

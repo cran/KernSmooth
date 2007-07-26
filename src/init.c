@@ -1,3 +1,10 @@
+/*
+ *  Part of R package KernSmooth
+ *  Copyright (C) 2005-2007  B. D. Ripley
+ *
+ *  Unlimited use and distribution (see LICENCE).
+ */
+
 #include <R.h>
 #include <Rinternals.h>
 #include <R_ext/Rdynload.h>
@@ -7,7 +14,7 @@ void F77_SUB(blkest)(double *x, double *y, int *n, int *q, int *qq,
 		     double *xmat, double *wk, double *qraux,
 		     double *sigsqe, double *th22e, double *th24e);
 
-void F77_SUB(cp)(double *x, double *y, int *n, int *q,
+void F77_SUB(cp)(double *x, double *y, int *n,
 		 int *qq, int *nmax, double *rss, double *xj,
 		 double *yj, double *coef, double *xmat, double *wk,
 		 double *qraux, double *cpvals);
@@ -43,7 +50,7 @@ void F77_SUB(sstdg)(double *xcounts, double *delta,
 
 static const R_FortranMethodDef FortEntries[] = {
     {"blkest", (DL_FUNC) &F77_SUB(blkest), 15},
-    {"cp",     (DL_FUNC) &F77_SUB(cp),     14},
+    {"cp",     (DL_FUNC) &F77_SUB(cp),     13},
     {"linbin", (DL_FUNC) &F77_SUB(linbin),  7},
     {"lbtwod", (DL_FUNC) &F77_SUB(lbtwod),  9},
     {"locpol", (DL_FUNC) &F77_SUB(locpol), 19},

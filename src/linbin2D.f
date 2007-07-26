@@ -1,3 +1,8 @@
+c  Part of R package KernSmooth
+c  Copyright (C) 1995  M. P. Wand
+c
+c  Unlimited use and distribution (see LICENCE).
+
 cccccccccc FORTRAN subroutine linbin2D.f cccccccccc
 
 c Obtains bin counts for bivariate data
