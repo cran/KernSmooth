@@ -108,3 +108,10 @@ Version 2.22-21
 
 Remove unused var in cp.f and .C() call.
 Install LICENCE file
+
+
+Version 2.22-22
+===============
+
+Add a few more details to the help files.
+

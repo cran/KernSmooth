@@ -19,9 +19,12 @@ be estimated.
 Missing values are not allowed.
 }
 \item{bandwidth}{
-the kernel bandwidth smoothing parameter.
-Larger values of \code{bandwidth} make smoother estimates,
-smaller values of \code{bandwidth} make less smooth estimates.
+  the kernel bandwidth smoothing parameter.  Larger values of
+  \code{bandwidth} make smoother estimates, smaller values of
+  \code{bandwidth} make less smooth estimates.  The default is a bandwidth
+  computed from the variance of \code{x}, specifically the
+  \sQuote{oversmoothed bandwidth selector} of Wand and Jones
+  (1995, page 61).
 }
 \item{kernel}{
 character string which determines the smoothing kernel.

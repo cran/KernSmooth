@@ -13,14 +13,14 @@ c are truncated.
 
 c Last changed: 27/01/95
 
-      subroutine linbin(X,n,a,b,M,trun,gcounts)     
-      double precision X(*),a,b,gcounts(*),lxi,delta,rem
+      subroutine linbin(X,n,a,b,M,trun,gcnts)
+      double precision X(*),a,b,gcnts(*),lxi,delta,rem
       integer n,M,i,li,trun
 
 c     Initialize grid counts to zero
 
       do 10 i=1,M
-         gcounts(i) = dble(0)
+         gcnts(i) = dble(0)
 10    continue
 
       delta = (b-a)/(M-1)
@@ -29,17 +29,17 @@ c     Initialize grid counts to zero
 
 c        Find integer part of "lxi"
 
-         li = lxi 
+         li = int(lxi)
 
          rem = lxi - li
          if (li.ge.1.and.li.lt.M) then
-            gcounts(li) = gcounts(li) + (1-rem)
-            gcounts(li+1) = gcounts(li+1) + rem
+            gcnts(li) = gcnts(li) + (1-rem)
+            gcnts(li+1) = gcnts(li+1) + rem
          elseif (li.lt.1.and.trun.eq.0) then
-            gcounts(1) = gcounts(1) + 1
+            gcnts(1) = gcnts(1) + 1
          elseif (li.ge.M) then
-            if (li.eq.M.or.trun.eq.0) then 
-               gcounts(M) = gcounts(M) + 1
+            if (li.eq.M.or.trun.eq.0) then
+               gcnts(M) = gcnts(M) + 1
             endif
          endif
 20    continue

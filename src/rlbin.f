@@ -13,15 +13,15 @@ c are truncated.
 
 c Last changed: 06/02/95
 
-      subroutine rlbin(X,Y,n,a,b,M,trun,xcounts,ycounts)     
-      double precision X(*),Y(*),a,b,xcounts(*),ycounts(*),lxi,delta,rem
+      subroutine rlbin(X,Y,n,a,b,M,trun,xcnts,ycnts)
+      double precision X(*),Y(*),a,b,xcnts(*),ycnts(*),lxi,delta,rem
       integer n,M,i,li,trun
 
 c     Initialize grid counts to zero
 
       do 10 i=1,M
-         xcounts(i) = dble(0)
-         ycounts(i) = dble(0)
+         xcnts(i) = dble(0)
+         ycnts(i) = dble(0)
 10    continue
 
       delta = (b-a)/(M-1)
@@ -30,20 +30,20 @@ c     Initialize grid counts to zero
 
 c        Find integer part of "lxi"
 
-         li = lxi 
+         li = int(lxi)
          rem = lxi - li
          if (li.ge.1.and.li.lt.M) then
-            xcounts(li) = xcounts(li) + (1-rem)
-            xcounts(li+1) = xcounts(li+1) + rem
-            ycounts(li) = ycounts(li) + (1-rem)*y(i)
-            ycounts(li+1) = ycounts(li+1) + rem*y(i)
+            xcnts(li) = xcnts(li) + (1-rem)
+            xcnts(li+1) = xcnts(li+1) + rem
+            ycnts(li) = ycnts(li) + (1-rem)*y(i)
+            ycnts(li+1) = ycnts(li+1) + rem*y(i)
          elseif (li.lt.1.and.trun.eq.0) then
-            xcounts(1) = xcounts(1) + 1
-            ycounts(1) = ycounts(1) + y(i)
+            xcnts(1) = xcnts(1) + 1
+            ycnts(1) = ycnts(1) + y(i)
          elseif (li.ge.M) then
-            if (li.eq.M.or.trun.eq.0) then 
-               xcounts(M) = xcounts(M) + 1
-               ycounts(M) = ycounts(M) + y(i)
+            if (li.eq.M.or.trun.eq.0) then
+               xcnts(M) = xcnts(M) + 1
+               ycnts(M) = ycnts(M) + y(i)
             endif
          endif
 20    continue

@@ -23,7 +23,7 @@ order of derivative in the density functional. Must be a
 non-negative even integer.
 }
 \item{bandwidth}{
-the kernel bandwidth smoothing parameter.
+the kernel bandwidth smoothing parameter.  Must be supplied.
 }
 \item{gridsize}{
 the number of equally-spaced points over which binning is

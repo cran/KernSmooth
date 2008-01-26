@@ -7,19 +7,19 @@ cccccccccc FORTRAN subroutine linbin2D.f cccccccccc
 
 c Obtains bin counts for bivariate data
 c via the linear binning strategy. In this version
-c observations outside the mesh are ignored. 
+c observations outside the mesh are ignored.
 
-c Last changed: 25/08/95 
+c Last changed: 25/08/95
 
-      subroutine lbtwod(X,n,a1,a2,b1,b2,M1,M2,gcounts)  
+      subroutine lbtwod(X,n,a1,a2,b1,b2,M1,M2,gcnts)
       integer n,M1,M2,i,li1,li2,ind1,ind2,ind3,ind4
-      double precision X(*),a1,a2,b1,b2,gcounts(*)
+      double precision X(*),a1,a2,b1,b2,gcnts(*)
       double precision lxi1,lxi2,delta1,delta2,rem1,rem2
 
-c     Initialize grid counts to zero
+c     Initialize grid cnts to zero
 
       do 10 i = 1,(M1*M2)
-         gcounts(i) = dble(0)
+         gcnts(i) = dble(0)
 10    continue
 
       delta1 = (b1 - a1)/(M1 - 1)
@@ -30,11 +30,11 @@ c     Initialize grid counts to zero
 
 c        Find the integer part of "lxi1" and "lxi2"
 
-         li1 = lxi1
-         li2 = lxi2
+         li1 = int(lxi1)
+         li2 = int(lxi2)
          rem1 = lxi1 - li1
-         rem2 = lxi2 - li2 
-         if (li1.ge.1) then              
+         rem2 = lxi2 - li2
+         if (li1.ge.1) then
             if (li2.ge.1) then
                if (li1.lt.M1) then
                   if (li2.lt.M2) then
@@ -42,13 +42,13 @@ c        Find the integer part of "lxi1" and "lxi2"
                      ind2 = M1*li2 + li1
                      ind3 = M1*(li2-1) + li1 + 1
                      ind4 = M1*li2 + li1 + 1
-                     gcounts(ind1) = gcounts(ind1)+(1-rem1)*(1-rem2)
-                     gcounts(ind2) = gcounts(ind2)+rem1*(1-rem2)
-                     gcounts(ind3) = gcounts(ind3)+(1-rem1)*rem2
-                     gcounts(ind4) = gcounts(ind4)+rem1*rem2
+                     gcnts(ind1) = gcnts(ind1)+(1-rem1)*(1-rem2)
+                     gcnts(ind2) = gcnts(ind2)+rem1*(1-rem2)
+                     gcnts(ind3) = gcnts(ind3)+(1-rem1)*rem2
+                     gcnts(ind4) = gcnts(ind4)+rem1*rem2
                   endif
-               endif  
-            endif 
+               endif
+            endif
          endif
 20    continue
 
