@@ -1,15 +1,17 @@
 Package: KernSmooth
 Priority: recommended
-Version: 2.22-22
-Date: 2008-01-26
+Version: 2.23-1
+Date: 2009-04-12
 Title: Functions for kernel smoothing for Wand & Jones (1995)
-Author: S original by Matt Wand.
-	R port by  Brian Ripley <ripley@stats.ox.ac.uk>.
+Author: S original by Matt Wand. R port by Brian Ripley
+        <ripley@stats.ox.ac.uk>.
 Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
 Depends: R (>= 2.5.0), stats
 Suggests: MASS
 Description: functions for kernel smoothing (and density estimation)
-  corresponding to the book: 
-  Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+        corresponding to the book: Wand, M.P. and Jones, M.C. (1995)
+        "Kernel Smoothing".
 License: Unlimited
-Packaged: Sat Jan 26 10:35:47 2008; ripley
+Packaged: 2009-04-13 14:51:05 UTC; ripley
+Repository: CRAN
+Date/Publication: 2009-05-05 07:27:35

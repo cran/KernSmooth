@@ -115,3 +115,11 @@ Version 2.22-22
 
 Add a few more details to the help files.
 
+
+Version 2.23-1
+==============
+
+Use integer constants.
+Protection against small bandwidths and related changes from Matt Wand
+Scale kernel weights to sum to 1 (matters when bandwidth is small compared
+to the grid spacing).

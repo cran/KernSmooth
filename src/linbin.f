@@ -11,7 +11,7 @@ c weight from end observations is given to corresponding
 c end grid points. If "trun=1" then end observations
 c are truncated.
 
-c Last changed: 27/01/95
+c Last changed: 20 MAR 2009
 
       subroutine linbin(X,n,a,b,M,trun,gcnts)
       double precision X(*),a,b,gcnts(*),lxi,delta,rem
@@ -29,19 +29,22 @@ c     Initialize grid counts to zero
 
 c        Find integer part of "lxi"
 
-         li = int(lxi)
+         li = lxi 
 
          rem = lxi - li
          if (li.ge.1.and.li.lt.M) then
             gcnts(li) = gcnts(li) + (1-rem)
             gcnts(li+1) = gcnts(li+1) + rem
-         elseif (li.lt.1.and.trun.eq.0) then
-            gcnts(1) = gcnts(1) + 1
-         elseif (li.ge.M) then
-            if (li.eq.M.or.trun.eq.0) then
-               gcnts(M) = gcnts(M) + 1
-            endif
          endif
+
+         if (li.lt.1.and.trun.eq.0) then
+            gcnts(1) = gcnts(1) + 1
+         endif
+
+         if (li.ge.M.and.trun.eq.0) then
+            gcnts(M) = gcnts(M) + 1
+         endif
+
 20    continue
 
       return

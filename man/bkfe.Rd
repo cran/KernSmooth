@@ -9,7 +9,7 @@ the kernel estimate of the specified density functional.
 The kernel is the standard normal density.
 }
 \usage{
-bkfe(x, drv, bandwidth, gridsize = 401, range.x, binned = FALSE,
+bkfe(x, drv, bandwidth, gridsize = 401L, range.x, binned = FALSE,
      truncate = TRUE)
 }
 \arguments{
@@ -44,7 +44,7 @@ logical flag: if \code{TRUE}, data with \code{x} values outside the
 range specified by \code{range.x} are ignored.
 }}
 \value{
-the estimated functional.
+the (scalar) estimated functional.
 }
 \details{
 The density functional of order \code{drv} is the integral of the

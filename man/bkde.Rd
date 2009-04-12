@@ -10,13 +10,12 @@ density of the data.
 }
 \usage{
 bkde(x, kernel = "normal", canonical = FALSE, bandwidth,
-     gridsize = 401, range.x, truncate = TRUE)
+     gridsize = 401L, range.x, truncate = TRUE)
 }
 \arguments{
 \item{x}{
-vector of observations from the distribution whose density is to
-be estimated.
-Missing values are not allowed.
+  vector of observations from the distribution whose density is to
+  be estimated.  Missing values are not allowed.
 }
 \item{bandwidth}{
   the kernel bandwidth smoothing parameter.  Larger values of
@@ -34,6 +33,7 @@ character string which determines the smoothing kernel.
 \code{"epanech"} - the centred beta(2,2) density.
 \code{"biweight"} - the centred beta(3,3) density.
 \code{"triweight"} - the centred beta(4,4) density.
+This can be abbreviated to any unique abbreviation.
 }
 \item{canonical}{
 logical flag: if \code{TRUE}, canonically scaled kernels are used.

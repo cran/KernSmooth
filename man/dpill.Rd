@@ -10,7 +10,7 @@ by Ruppert, Sheather and Wand (1995).
 }
 \usage{
 dpill(x, y, blockmax = 5, divisor = 20, trim = 0.01, proptrun = 0.05, 
-      gridsize = 401, range.x, truncate = TRUE)
+      gridsize = 401L, range.x, truncate = TRUE)
 }
 \arguments{
 \item{x}{

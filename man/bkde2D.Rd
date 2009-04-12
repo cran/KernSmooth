@@ -10,7 +10,7 @@ the grid points. The kernel is the standard bivariate normal
 density. 
 }
 \usage{
-bkde2D(x, bandwidth, gridsize=c(51, 51), range.x, truncate=TRUE)
+bkde2D(x, bandwidth, gridsize = c(51L, 51L), range.x, truncate = TRUE)
 }
 \arguments{
 \item{x}{
@@ -82,7 +82,7 @@ Chapman and Hall, London.
 \examples{
 data(geyser, package="MASS")
 x <- cbind(geyser$duration, geyser$waiting)
-est <- bkde2D(x, bandwidth=c(0.7,7))
+est <- bkde2D(x, bandwidth=c(0.7, 7))
 contour(est$x1, est$x2, est$fhat)
 persp(est$fhat)
 }

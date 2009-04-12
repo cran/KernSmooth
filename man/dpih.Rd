@@ -8,8 +8,8 @@ Uses direct plug-in methodology to select the bin width of
 a histogram.
 }
 \usage{
-dpih(x, scalest="minim", level=2, gridsize=401, 
-     range.x=range(x), truncate=TRUE)
+dpih(x, scalest = "minim", level = 2L, gridsize = 401L, 
+     range.x = range(x), truncate = TRUE)
 }
 \arguments{
 \item{x}{

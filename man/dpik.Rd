@@ -8,9 +8,9 @@ Use direct plug-in methodology to select the bandwidth
 of a kernel density estimate.
 }
 \usage{
-dpik(x, scalest="minim", level=2, kernel="normal",   
-     canonical=FALSE, gridsize=401, range.x=range(x), 
-     truncate=TRUE)
+dpik(x, scalest = "minim", level = 2L, kernel = "normal",   
+     canonical = FALSE, gridsize = 401L, range.x = range(x), 
+     truncate = TRUE)
 }
 \arguments{
 \item{x}{
@@ -38,6 +38,7 @@ character string which determines the smoothing kernel.
 \code{"epanech"} - the centred beta(2,2) density.
 \code{"biweight"} - the centred beta(3,3) density.
 \code{"triweight"} - the centred beta(4,4) density.
+This can be abbreviated to any unique abbreviation.
 }
 \item{canonical}{
 logical flag: if \code{TRUE}, canonically scaled kernels are used
@@ -91,7 +92,7 @@ Chapman and Hall, London.
 data(geyser, package="MASS")
 x <- geyser$duration
 h <- dpik(x)
-est <- bkde(x,bandwidth=h)
+est <- bkde(x, bandwidth=h)
 plot(est,type="l")
 }
 \keyword{smooth}
