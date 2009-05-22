@@ -893,7 +893,7 @@ sstdiag <- function(x, drv = 0L, degree = 1L, kernel = "normal",
 }
 
 .onLoad <- function(lib, pkg)
-   packageStartupMessage("KernSmooth 2.23 installed\nCopyright M. P. Wand 1997-2009")
+   packageStartupMessage("KernSmooth 2.23 loaded\nCopyright M. P. Wand 1997-2009")
 
 .onUnload <- function(libpath)
     library.dynam.unload("KernSmooth",  libpath)
