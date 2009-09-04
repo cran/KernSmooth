@@ -74,9 +74,7 @@ kernel density estimation.
 
 Wand, M. P. (1995).
 Data-based choice of histogram binwidth.
-\emph{University of New South Wales},
-Australian Graduate School of Management 
-Working Paper Series No. 95--011.
+\emph{The American Statistician}, \bold{51}, 59--64.
 }
 \seealso{
   \code{\link{hist}}
@@ -85,8 +83,8 @@ Working Paper Series No. 95--011.
 data(geyser, package="MASS")
 x <- geyser$duration
 h <- dpih(x)
-bins <- seq(min(x)-0.1, max(x)+0.1+h, by=h)
+bins <- seq(min(x)-h, max(x)+h, by=h)
 hist(x, breaks=bins)
 }
 \keyword{smooth}
-% Converted by Sd2Rd version 0.2-a5.
+

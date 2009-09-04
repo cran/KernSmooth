@@ -123,3 +123,15 @@ Use integer constants.
 Protection against small bandwidths and related changes from Matt Wand
 Scale kernel weights to sum to 1 (matters when bandwidth is small compared
 to the grid spacing).
+
+
+Version 2.23-2
+==============
+
+Add German translation.
+
+
+Version 2.23-3
+==============
+
+Tweaks to dpih.Rd from Matt Wand.
