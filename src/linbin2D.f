@@ -9,8 +9,6 @@ c Obtains bin counts for bivariate data
 c via the linear binning strategy. In this version
 c observations outside the mesh are ignored.
 
-c Last changed: 25/08/95
-
       subroutine lbtwod(X,n,a1,a2,b1,b2,M1,M2,gcnts)
       integer n,M1,M2,i,li1,li2,ind1,ind2,ind3,ind4
       double precision X(*),a1,a2,b1,b2,gcnts(*)
@@ -39,8 +37,8 @@ c        Find the integer part of "lxi1" and "lxi2"
                if (li1.lt.M1) then
                   if (li2.lt.M2) then
                      ind1 = M1*(li2-1) + li1
-                     ind2 = M1*li2 + li1
-                     ind3 = M1*(li2-1) + li1 + 1
+                     ind2 = M1*(li2-1) + li1 + 1
+                     ind3 = M1*li2 + li1
                      ind4 = M1*li2 + li1 + 1
                      gcnts(ind1) = gcnts(ind1)+(1-rem1)*(1-rem2)
                      gcnts(ind2) = gcnts(ind2)+rem1*(1-rem2)

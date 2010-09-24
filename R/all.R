@@ -503,43 +503,34 @@ dpill <- function(x, y, blockmax = 5, divisor = 20, trim = 0.01,
     M <- gridsize
     a <- range.x[1L]
     b <- range.x[2L]
-    delta <- (b-a)/(M-1)
 
-    ## Replace input data by standardised data for numerical stability:
-    sdx <- sd(x) ; sdy <- sd(y)
+    ## Bin the data
 
-    if (sd(x) == 0) stop("x data has zero standard deviation")
-    if (sd(y) == 0) stop("y data has zero standard deviation")
-
-    sx <- (x-mean(x))/sdx ; sy <- (y-mean(y))/sdy
-    sa <- (a-mean(x))/sdx ; sb <- (b-mean(x))/sdx
-
-    ## Bin the data:
-    gpoints <- seq(sa, sb, length = M)
-    out <- rlbin(sx, sy, gpoints, truncate)
+    gpoints <- seq(a, b, length = M)
+    out <- rlbin(x, y, gpoints, truncate)
     xcounts <- out$xcounts
     ycounts <- out$ycounts
 
     ## Choose the value of N using Mallow's C_p
     Nmax <- max(min(floor(n/divisor), blockmax), 1)
+    Nval <- cpblock(x, y, Nmax, 4)
 
-    Nval <- cpblock(sx, sy, Nmax, 4)
-
-    ## Estimate sig^2,  theta_22 and theta_24 using quartic fits
+    ## Estimate sig^2, theta_22 and theta_24 using quartic fits
     ## on "Nval" blocks.
-    out <- blkest(sx, sy, Nval, 4)
+
+    out <- blkest(x, y, Nval, 4)
     sigsqQ <- out$sigsqe
-    th22Q <- out$th22e
     th24Q <- out$th24e
 
     ## Estimate theta_22 using a local cubic fit
     ## with a "rule-of-thumb" bandwidth: "gamseh"
-    gamseh <- (sigsqQ*(sb-sa)/(abs(th24Q)*n))
-    if (th24Q<0) gamseh <- (3*gamseh/(8*sqrt(pi)))^(1/7)
-    if (th24Q>0) gamseh <- (15*gamseh/(16*sqrt(pi)))^(1/7)
 
-    mddest <- locpoly(xcounts, ycounts, drv = 2L, bandwidth = gamseh,
-                      range.x = c(sa, sb), binned = TRUE, gridsize = M)$y
+    gamseh <- (sigsqQ*(b-a)/(abs(th24Q)*n))
+    if (th24Q < 0) gamseh <- (3*gamseh/(8*sqrt(pi)))^(1/7)
+    if (th24Q > 0) gamseh <- (15*gamseh/(16*sqrt(pi)))^(1/7)
+
+    mddest <- locpoly(xcounts, ycounts, drv=2L, bandwidth=gamseh,
+                      range.x=range.x, binned=TRUE)$y
 
     llow <- floor(proptrun*M) + 1
     lupp <- M - floor(proptrun*M)
@@ -549,22 +540,22 @@ dpill <- function(x, y, blockmax = 5, divisor = 20, trim = 0.01,
     ## with a "direct plug-in" bandwidth: "lamseh"
     C3K <- (1/2) + 2*sqrt(2) - (4/3)*sqrt(3)
     C3K <- (4*C3K/(sqrt(2*pi)))^(1/9)
-    lamseh <- C3K*(((sigsqQ^2)*(sb-sa)/((th22kn*n)^2))^(1/9))
+    lamseh <- C3K*(((sigsqQ^2)*(b-a)/((th22kn*n)^2))^(1/9))
 
-    ## Now compute a local linear kernel estimate of the variance.
-    mest <- locpoly(xcounts, ycounts, bandwidth = lamseh,
-                    range.x = c(sa, sb), binned = TRUE, gridsize = M)$y
-
-    Sdg <- sdiag(xcounts, bandwidth = lamseh,
-                 range.x = c(sa, sb), binned = TRUE, gridsize = M)$y
-    SSTdg <- sstdiag(xcounts, bandwidth = lamseh,
-                     range.x = c(sa, sb), binned = TRUE, gridsize = M)$y
-    sigsqn <- sum(sy^2) - 2*sum(mest*ycounts) + sum((mest^2)*xcounts)
+    ## Now compute a local linear kernel estimate of
+    ## the variance.
+    mest <- locpoly(xcounts, ycounts, bandwidth=lamseh,
+                    range.x=range.x, binned=TRUE)$y
+    Sdg <- sdiag(xcounts, bandwidth=lamseh,
+                 range.x=range.x, binned=TRUE)$y
+    SSTdg <- sstdiag(xcounts, bandwidth=lamseh,
+                     range.x=range.x, binned=TRUE)$y
+    sigsqn <- sum(y^2) - 2*sum(mest*ycounts) + sum((mest^2)*xcounts)
     sigsqd <- n - 2*sum(Sdg*xcounts) + sum(SSTdg*xcounts)
     sigsqkn <- sigsqn/sigsqd
 
-    ## Combine to obtain final answer:
-    sdx * (sigsqkn * (sb-sa)/(2*sqrt(pi)*th22kn*n))^(1/5)
+    ## Combine to obtain final answer.
+    (sigsqkn*(b-a)/(2*sqrt(pi)*th22kn*n))^(1/5)
 }
 
 ## For application of linear binning to a univariate data set.

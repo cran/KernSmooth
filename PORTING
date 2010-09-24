@@ -135,3 +135,11 @@ Version 2.23-3
 ==============
 
 Tweaks to dpih.Rd from Matt Wand.
+
+
+Version 2.23-4
+==============
+
+Correction to linbin2D from Kjell Konis (output was transposed).
+Revert dpill to 2.22 version at Matt Wand's request.
+
