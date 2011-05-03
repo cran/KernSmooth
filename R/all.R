@@ -220,7 +220,7 @@ bkfe <- function(x, drv, bandwidth, gridsize = 401L, range.x,
 
     ## Now combine weights and counts to obtain estimate
 
-    P <- 2^(ceiling(log(M+L)/log(2)))
+    P <- 2^(ceiling(log(M+L+1L)/log(2)))
     kappam <- c(kappam, rep(0,  P-2L*L-1L), rev(kappam[-1L]))
     Gcounts <- c(gcounts, rep(0, P-M))
     kappam <- fft(kappam)
