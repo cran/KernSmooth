@@ -29,7 +29,7 @@ c     Initialize grid counts to zero
 
 c        Find integer part of "lxi"
 
-         li = lxi 
+         li = int(lxi) 
 
          rem = lxi - li
          if (li.ge.1.and.li.lt.M) then

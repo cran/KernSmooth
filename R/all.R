@@ -65,8 +65,8 @@ bkde <- function(x, kernel = "normal", canonical = FALSE, bandwidth,
         0.5*dbeta(0.5*(lvec*delta+1), 4, 4)/(n*h)
 
     ## Now combine weight and counts to obtain estimate
-
-    P <- 2^(ceiling(log(M+L)/log(2)))
+    ## we need P >= 2L+1L, M: L <= M.
+    P <- 2^(ceiling(log(M+L+1L)/log(2)))
     kappa <- c(kappa, rep(0, P-2L*L-1L), rev(kappa[-1L]))
     tot <- sum(kappa) * (b-a)/(M-1L) * n # should have total weight one
     gcounts <- c(gcounts, rep(0L, P-M))
@@ -203,7 +203,7 @@ bkfe <- function(x, drv, bandwidth, gridsize = 401L, range.x,
     if (L == 0)
         warning("Binning grid too coarse for current (small) bandwidth: consider increasing 'gridsize'")
 
-    lvec <- (0L:L)
+    lvec <- 0L:L
     arg <- lvec*delta/h
 
     kappam <- dnorm(arg)/(h^(drv+1))
@@ -219,7 +219,7 @@ bkfe <- function(x, drv, bandwidth, gridsize = 401L, range.x,
     kappam <- hmnew * kappam
 
     ## Now combine weights and counts to obtain estimate
-
+    ## we need P >= 2L+1L, M: L <= M.
     P <- 2^(ceiling(log(M+L+1L)/log(2)))
     kappam <- c(kappam, rep(0,  P-2L*L-1L), rev(kappam[-1L]))
     Gcounts <- c(gcounts, rep(0, P-M))
