@@ -1,10 +1,11 @@
-7e21d8dbc0b5139748e2ec7b31e73d3d *DESCRIPTION
+6de3b758fcbf9daae2e2fc2d0dfa624b *DESCRIPTION
 4a39ab255fed86dd361ce9d83f876488 *Licence.note
 e6d41c4b9546b7547620341fcb32e171 *NAMESPACE
 d8e5fc189f6353598b56274932c69c93 *PORTING
 54113a8766dd4c055327c259f3185550 *R/all.R
 7185878b9b588e59c476ef66ef589ad0 *inst/po/de/LC_MESSAGES/R-KernSmooth.mo
-01235703270eab66c9d04ccd5774015f *inst/po/en@quot/LC_MESSAGES/R-KernSmooth.mo
+2c8b9792f4bd984045e44027aedf32d7 *inst/po/en@quot/LC_MESSAGES/R-KernSmooth.mo
+20f8da69d6f334487c3ff958b321f576 *inst/po/ko/LC_MESSAGES/R-KernSmooth.mo
 b0e9bf0d7b471be7947aee068e48c5e2 *inst/po/pl/LC_MESSAGES/R-KernSmooth.mo
 5f6ef1beea4f7680cea94e63dd715bcb *man/bkde.Rd
 b18f6ce168f418c6447707cd895d9bb0 *man/bkde2D.Rd
@@ -18,8 +19,9 @@ e7ddab232fd0c2c20b6eac503229ca89 *man/dpill.Rd
 c91f894fc64f72b3f9dada3b7373ccf8 *orig/S.sty
 2d29532678530aba55563b5bda33c93d *orig/gray.ps
 2b31b884253bbeca63d362d0584132d2 *orig/install+use
-67022807a67a6d17ae6cb6e2aa1b112a *po/R-KernSmooth.pot
+2a0b84044dc4c9bb90bcae2dbf8b82c8 *po/R-KernSmooth.pot
 a3bff8330d009bed4eb29e4a802ef6fc *po/R-de.po
+f6c91ce7ac6d9c05926a3deb279d6376 *po/R-ko.po
 7a383316c28610e96bad7dd441a11c0b *po/R-pl.po
 8290d2e9740414e315237f0d5d4024bb *src/Makevars
 fbf478a29898539e563ca19df62372fe *src/blkest.f
