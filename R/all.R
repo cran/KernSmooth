@@ -563,7 +563,7 @@ linbin <- function(X, gpoints, truncate = TRUE)
 {
     n <- length(X)
     M <- length(gpoints)
-    if (truncate) trun <- 1L else 0L
+    trun <- if (truncate) 1L else 0L
     a <- gpoints[1L]
     b <- gpoints[M]
     .Fortran(F_linbin, as.double(X), as.integer(n),
