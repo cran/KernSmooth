@@ -1,8 +1,8 @@
-0df85f2a4975a67a4ec7fc8b218a9d7d *DESCRIPTION
-4a39ab255fed86dd361ce9d83f876488 *Licence.note
+81b0adb13849ca3fbfb53ecf31a598e7 *DESCRIPTION
+4a39ab255fed86dd361ce9d83f876488 *LICENCE.note
 e6d41c4b9546b7547620341fcb32e171 *NAMESPACE
-63bd407c7a45e12e76220d6a22a2a2c9 *PORTING
-78432f79f9abbd5282d6e70877aab6ff *R/all.R
+c0da69901ee4ec65d71d584cb4cd0847 *PORTING
+f2ac13bb8e9a9d30241ad498e67102a2 *R/all.R
 7185878b9b588e59c476ef66ef589ad0 *inst/po/de/LC_MESSAGES/R-KernSmooth.mo
 694bf1489344b16da50a86171a60f8f6 *inst/po/en@quot/LC_MESSAGES/R-KernSmooth.mo
 615bf796b6ca55cc1c5241eaaa3b7a45 *inst/po/fr/LC_MESSAGES/R-KernSmooth.mo
@@ -15,11 +15,6 @@ b18f6ce168f418c6447707cd895d9bb0 *man/bkde2D.Rd
 e9d58f063bb33cd05bb14a80fb6bfcbd *man/dpik.Rd
 e7ddab232fd0c2c20b6eac503229ca89 *man/dpill.Rd
 2fb0ede2945d4b26db4e0c165c4761cc *man/locpoly.Rd
-582f9bd6948650d555bed1ca38869a5b *orig/KernSmooth.tex
-954fc0684398ad9536769b0518854855 *orig/README
-c91f894fc64f72b3f9dada3b7373ccf8 *orig/S.sty
-2d29532678530aba55563b5bda33c93d *orig/gray.ps
-2b31b884253bbeca63d362d0584132d2 *orig/install+use
 d6e2fce659a96e6d66e50ba926fe020d *po/R-KernSmooth.pot
 a3bff8330d009bed4eb29e4a802ef6fc *po/R-de.po
 20a1d211f39041052c007a176bdf800d *po/R-fr.po

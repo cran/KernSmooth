@@ -180,7 +180,7 @@ Version 2.23-10
 ===============
 
 Add Korean translations.
-Force byte-compiling (for consistency with installation from tarball).
+Force byte-compiling (for consistency with installation from R tarball).
 
 
 Version 2.23-11
@@ -188,4 +188,17 @@ Version 2.23-11
 
 Add French translations.
 Bug fix in linbin(truncate = FALSE)
+
+
+Version 2.23-12
+===============
+
+Update Polish translations.
+
+
+Version 2.23-13
+===============
+
+Changes to reduce noise from R CMD check --as-cran:
+put message in .onAttach and remove orig.
 

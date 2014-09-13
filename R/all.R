@@ -883,7 +883,7 @@ sstdiag <- function(x, drv = 0L, degree = 1L, kernel = "normal",
     list(x = gpoints, y = SSTd)
 }
 
-.onLoad <- function(libname, pkgname)
+.onAttach <- function(libname, pkgname)
    packageStartupMessage("KernSmooth 2.23 loaded\nCopyright M. P. Wand 1997-2009")
 
 .onUnload <- function(libpath)
