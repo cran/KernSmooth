@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: KernSmooth 2.23-16\n"
-"POT-Creation-Date: 2020-04-26 10:23\n"
+"Project-Id-Version: KernSmooth 2.23-20\n"
+"POT-Creation-Date: 2021-04-17 09:42\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,6 +11,9 @@ msgstr ""
 
 
 msgid "'bandwidth' must be strictly positive"
+msgstr ""
+
+msgid "'canonical' must be a length-1 logical vector"
 msgstr ""
 
 msgid "Binning grid too coarse for current (small) bandwidth: consider increasing 'gridsize'"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KernSmooth 2.23-15\n"
 "Report-Msgid-Bugs-To: bugs.r-project.org\n"
-"POT-Creation-Date: 2020-04-26 10:23\n"
+"POT-Creation-Date: 2021-02-12 09:20\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniele Medri <dmedri@gmail.com>\n"
 "Language-Team: Italian https://github.com/dmedri/R-italian-lang\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "'bandwidth' must be strictly positive"
 msgstr "'bandwidth' dev'essere strettamente positivo"
+
+msgid "'canonical' must be a length-1 logical vector"
+msgstr ""
 
 msgid ""
 "Binning grid too coarse for current (small) bandwidth: consider increasing "

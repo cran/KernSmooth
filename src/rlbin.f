@@ -32,6 +32,13 @@ c        Find integer part of "lxi"
 
          li = int(lxi) 
          rem = lxi - li
+         
+c        Correction for right endpoint (not included if li.eq.M)
+         if (X(i).eq.b) then
+            li = M - 1
+            rem = 1
+         endif
+
          if (li.ge.1.and.li.lt.M) then
             xcnts(li) = xcnts(li) + (1-rem)
             xcnts(li+1) = xcnts(li+1) + rem
