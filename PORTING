@@ -240,6 +240,7 @@ Version 2.23-19
 
 src/rlbin.f: issue in locpoly()  reported by Peter Dalgaard
 tests/locpoly.R: regression test for the above.
+[Unreleased]
 
 Version 2.23-20
 ===============

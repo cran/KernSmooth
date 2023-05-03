@@ -45,7 +45,7 @@ bkde <- function(x, kernel = "normal", canonical = FALSE, bandwidth,
 
     ## Set up grid points and bin the data
 
-    gpoints <- seq(a, b, length = M)
+    gpoints <- seq(a, b, length.out = M)
     gcounts <- linbin(x, gpoints, truncate)
 
     ## Compute kernel weights
@@ -112,8 +112,8 @@ bkde2D <-
 
     ## Set up grid points and bin the data
 
-    gpoints1 <- seq(a[1L], b[1L], length = M[1L])
-    gpoints2 <- seq(a[2L], b[2L], length = M[2L])
+    gpoints1 <- seq(a[1L], b[1L], length.out = M[1L])
+    gpoints2 <- seq(a[2L], b[2L], length.out = M[2L])
 
     gcounts <- linbin2D(x, gpoints1, gpoints2)
 
@@ -185,12 +185,12 @@ bkfe <- function(x, drv, bandwidth, gridsize = 401L, range.x,
     ## Bin the data if not already binned
 
     if (!binned) {
-        gpoints <- seq(a, b, length = gridsize)
+        gpoints <- seq(a, b, length.out = gridsize)
         gcounts <- linbin(x, gpoints, truncate)
     } else {
         gcounts <- x
         M <- length(gcounts)
-        gpoints <- seq(a, b, length = M)
+        gpoints <- seq(a, b, length.out = M)
     }
 
     ## Set the sample size and bin width
@@ -321,7 +321,7 @@ dpih <- function(x, scalest = "minim", level = 2L, gridsize = 401L,
 
     ## Set up grid points and bin the data
 
-    gpoints <- seq(a, b, length = M)
+    gpoints <- seq(a, b, length.out = M)
     gcounts <- linbin(x, gpoints, truncate)
 
     ## Compute scale estimate
@@ -341,7 +341,7 @@ dpih <- function(x, scalest = "minim", level = 2L, gridsize = 401L,
 
     ## Set up grid points and bin the data:
 
-    gpoints <- seq(sa, sb, length = M)
+    gpoints <- seq(sa, sb, length.out = M)
     gcounts <- linbin(sx, gpoints, truncate)
 ##    delta <- (sb-sa)/(M - 1)
 
@@ -417,7 +417,7 @@ dpik <- function(x, scalest = "minim", level = 2L, kernel = "normal",
     b <- range.x[2L]
 
     ## Set up grid points and bin the data
-    gpoints <- seq(a, b, length = M)
+    gpoints <- seq(a, b, length.out = M)
     gcounts <- linbin(x, gpoints, truncate)
 
     ## Compute scale estimate
@@ -434,7 +434,7 @@ dpik <- function(x, scalest = "minim", level = 2L, kernel = "normal",
     sa <- (a-mean(x))/scalest ; sb <- (b-mean(x))/scalest
 
     ## Set up grid points and bin the data:
-    gpoints <- seq(sa, sb, length = M)
+    gpoints <- seq(sa, sb, length.out = M)
     gcounts <- linbin(sx, gpoints, truncate)
 ##    delta <- (sb-sa)/(M-1)
 
@@ -509,7 +509,7 @@ dpill <- function(x, y, blockmax = 5, divisor = 20, trim = 0.01,
 
     ## Bin the data
 
-    gpoints <- seq(a, b, length = M)
+    gpoints <- seq(a, b, length.out = M)
     out <- rlbin(x, y, gpoints, truncate)
     xcounts <- out$xcounts
     ycounts <- out$ycounts
@@ -634,14 +634,14 @@ locpoly <- function(x, y, drv = 0L, degree, kernel = "normal",
     if (missing(y))  {  # obtain density estimate
         y <- NULL
         n <- length(x)
-        gpoints <- seq(a, b, length = M)
+        gpoints <- seq(a, b, length.out = M)
         xcounts <- linbin(x, gpoints, truncate)
         ycounts <- (M-1)*xcounts/(n*(b-a))
         xcounts <- rep(1, M)
     } else {            # obtain regression estimate
         ## Bin the data if not already binned
         if (!binned) {
-            gpoints <- seq(a, b, length = M)
+            gpoints <- seq(a, b, length.out = M)
             out <- rlbin(x, y, gpoints, truncate)
             xcounts <- out$xcounts
             ycounts <- out$ycounts
@@ -649,7 +649,7 @@ locpoly <- function(x, y, drv = 0L, degree, kernel = "normal",
             xcounts <- x
             ycounts <- y
             M <- length(xcounts)
-            gpoints <- seq(a, b, length = M)
+            gpoints <- seq(a, b, length.out = M)
         }
     }
 
@@ -660,7 +660,7 @@ locpoly <- function(x, y, drv = 0L, degree, kernel = "normal",
     if (length(bandwidth) == M) {
         hlow <- sort(bandwidth)[1L]
         hupp <- sort(bandwidth)[M]
-        hdisc <- exp(seq(log(hlow), log(hupp), length = Q))
+        hdisc <- exp(seq(log(hlow), log(hupp), length.out = Q))
 
         ## Determine value of L for each member of "hdisc"
         Lvec <- floor(tau*hdisc/delta)
@@ -748,12 +748,12 @@ sdiag <- function(x, drv = 0L, degree = 1L, kernel = "normal",
     ## Bin the data if not already binned
 
     if (!binned) {
-        gpoints <- seq(a, b, length = M)
+        gpoints <- seq(a, b, length.out = M)
         xcounts <- linbin(x, gpoints, truncate)
     } else {
         xcounts <- x
         M <- length(xcounts)
-        gpoints <- seq(a, b, length = M)
+        gpoints <- seq(a, b, length.out = M)
     }
 
     ## Set the bin width
@@ -765,7 +765,7 @@ sdiag <- function(x, drv = 0L, degree = 1L, kernel = "normal",
     if (length(bandwidth) == M) {
         hlow <- sort(bandwidth)[1L]
         hupp <- sort(bandwidth)[M]
-        hdisc <- exp(seq(log(hlow), log(hupp), length = Q))
+        hdisc <- exp(seq(log(hlow), log(hupp), length.out = Q))
 
         ## Determine value of L for each member of "hdisc"
         Lvec <- floor(tau*hdisc/delta)
@@ -826,12 +826,12 @@ sstdiag <- function(x, drv = 0L, degree = 1L, kernel = "normal",
 
     ## Bin the data if not already binned
     if (!binned) {
-        gpoints <- seq(a, b, length = M)
+        gpoints <- seq(a, b, length.out = M)
         xcounts <- linbin(x, gpoints, truncate)
     } else {
         xcounts <- x
         M <- length(xcounts)
-        gpoints <- seq(a, b, length = M)
+        gpoints <- seq(a, b, length.out = M)
     }
 
     ## Set the bin width
@@ -842,7 +842,7 @@ sstdiag <- function(x, drv = 0L, degree = 1L, kernel = "normal",
     if (length(bandwidth) == M) {
         hlow <- sort(bandwidth)[1L]
         hupp <- sort(bandwidth)[M]
-        hdisc <- exp(seq(log(hlow), log(hupp), length = Q))
+        hdisc <- exp(seq(log(hlow), log(hupp), length.out = Q))
 
         ## Determine value of L for each member of "hdisc"
         Lvec <- floor(tau*hdisc/delta)
