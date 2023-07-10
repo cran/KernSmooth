@@ -1,7 +1,7 @@
-664a7a2e5c2f22f827c86d52f291d857 *DESCRIPTION
+a08cf595ed44597bc84b0d2ef6570e65 *DESCRIPTION
 2e0dc36e93da6190c3a98daee12adf01 *LICENCE.note
 a93c919c53d25488f67acbe057fff7ed *NAMESPACE
-af2eecaef956cf10cf859f9ea8780f48 *PORTING
+51a41c05af09d76b8a000d8b3229b214 *PORTING
 e39722afb7d8e01d4fe4ae4a91d32f77 *R/all.R
 b0d64daa8248d639e4e8b18ce8cf1d7b *inst/po/de/LC_MESSAGES/R-KernSmooth.mo
 b3f60f3bd8f90b8014d0753c54dd6436 *inst/po/en@quot/LC_MESSAGES/R-KernSmooth.mo
@@ -22,7 +22,7 @@ c9ded8b39bff26f94a330d3e8f3806d0 *po/R-KernSmooth.pot
 c809bfb04ea2f159c135066e86245eb2 *po/R-it.po
 a2847b53c0440c2e28fdecdb3dc78d19 *po/R-ko.po
 9d5ff0a109cf7aa38c7fb56017539a3b *po/R-pl.po
-8290d2e9740414e315237f0d5d4024bb *src/Makevars
+f491e0deec507157cbb9c8094b4b1896 *src/Makevars
 fbf478a29898539e563ca19df62372fe *src/blkest.f
 3518477f0489855c005d4c9d9e48de5d *src/cp.f
 a998e830d7647683a856b25a4ae26ad1 *src/dgedi.f

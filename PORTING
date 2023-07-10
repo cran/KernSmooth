@@ -248,3 +248,14 @@ Version 2.23-20
 R/all.R: add sanity check for 'canonical' argument.
 man/bkde.Rd: stress the above.
 Update fr translations.
+
+Version 2.23-21
+===============
+
+typo in bkde
+
+Version 2.23-22
+===============
+
+src/Makevars does not need FLIBS as there is Fortran code in the package.
+(And macOS now warns on duplication.)
