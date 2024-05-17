@@ -19,13 +19,13 @@ c Last changed: 26 MAR 2009
 
 c     Initialize grid counts to zero
 
-      do 10 i=1,M
+      do i=1,M
          xcnts(i) = dble(0)
          ycnts(i) = dble(0)
-10    continue
+      end do
 
       delta = (b-a)/(M-1)
-      do 20 i=1,n
+      do i=1,n
          lxi = ((X(i)-a)/delta) + 1
 
 c        Find integer part of "lxi"
@@ -56,7 +56,7 @@ c        Correction for right endpoint (not included if li.eq.M)
                ycnts(M) = ycnts(M) + y(i)
          endif
 
-20    continue
+      end do
 
       return
       end

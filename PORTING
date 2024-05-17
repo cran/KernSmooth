@@ -253,9 +253,24 @@ Version 2.23-21
 ===============
 
 typo in bkde
+Expand seq(length=).
 
 Version 2.23-22
 ===============
 
 src/Makevars does not need FLIBS as there is Fortran code in the package.
 (And macOS now warns on duplication.)
+
+Version 2.23-23
+===============
+
+(Not released to CRAN)
+
+Declare a variable in cp.f to pacify Intel ifx.
+
+Version 2.23-24
+===============
+
+Use DO..END DO in Fortran code.
+Update de translations.
+

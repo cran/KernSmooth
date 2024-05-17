@@ -1,3 +1,5 @@
+c     A LINPACK routine updated for Fortran 90.
+
       subroutine dgefa(a,lda,n,ipvt,info)
       integer lda,n,ipvt(*),info
       double precision a(lda,*)
@@ -56,7 +58,7 @@ c
       info = 0
       nm1 = n - 1
       if (nm1 .lt. 1) go to 70
-      do 60 k = 1, nm1
+      do k = 1, nm1
          kp1 = k + 1
 c
 c        find l = pivot index
@@ -83,19 +85,19 @@ c
 c
 c           row elimination with column indexing
 c
-            do 30 j = kp1, n
+            do j = kp1, n
                t = a(l,j)
                if (l .eq. k) go to 20
                   a(l,j) = a(k,j)
                   a(k,j) = t
    20          continue
                call daxpy(n-k,t,a(k+1,k),1,a(k+1,j),1)
-   30       continue
+            end do
          go to 50
    40    continue
             info = k
    50    continue
-   60 continue
+      end do
    70 continue
       ipvt(n) = n
       if (a(n,n) .eq. 0.0d0) info = n

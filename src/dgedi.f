@@ -1,3 +1,8 @@
+c     A LINPACK routine updated for Fortran 90.
+c     A version on Netlib has
+c     linpack. this version dated 08/14/78 .
+c     cleve moler, university of new mexico, argonne national lab.
+
       subroutine dgedi(a,lda,n,ipvt,det,work,job)
       integer lda,n,ipvt(*),job
       double precision a(lda,*),det(2),work(*)
@@ -68,7 +73,7 @@ c
          det(1) = 1.0d0
          det(2) = 0.0d0
          ten = 10.0d0
-         do 50 i = 1, n
+         do i = 1, n
             if (ipvt(i) .ne. i) det(1) = -det(1)
             det(1) = a(i,i)*det(1)
 c        ...exit
@@ -83,46 +88,45 @@ c        ...exit
                det(2) = det(2) + 1.0d0
             go to 30
    40       continue
-   50    continue
+         end do
    60    continue
    70 continue
 c
 c     compute inverse(u)
 c
-      if (mod(job,10) .eq. 0) go to 150
-         do 100 k = 1, n
+      if (mod(job,10) .eq. 0) return
+         do k = 1, n
             a(k,k) = 1.0d0/a(k,k)
             t = -a(k,k)
             call dscal(k-1,t,a(1,k),1)
             kp1 = k + 1
             if (n .lt. kp1) go to 90
-            do 80 j = kp1, n
+            do j = kp1, n
                t = a(k,j)
                a(k,j) = 0.0d0
                call daxpy(k,t,a(1,k),1,a(1,j),1)
-   80       continue
+            end do
    90       continue
-  100    continue
+         end do
 c
 c        form inverse(u)*inverse(l)
 c
          nm1 = n - 1
          if (nm1 .lt. 1) go to 140
-         do 130 kb = 1, nm1
+         do kb = 1, nm1
             k = n - kb
             kp1 = k + 1
-            do 110 i = kp1, n
+            do i = kp1, n
                work(i) = a(i,k)
                a(i,k) = 0.0d0
-  110       continue
-            do 120 j = kp1, n
+            end do
+            do j = kp1, n
                t = work(j)
                call daxpy(n,t,a(1,j),1,a(1,k),1)
-  120       continue
+            end do
             l = ipvt(k)
             if (l .ne. k) call dswap(n,a(1,k),1,a(1,l),1)
-  130    continue
+         end do
   140    continue
-  150 continue
       return
       end

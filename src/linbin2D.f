@@ -16,13 +16,13 @@ c observations outside the mesh are ignored.
 
 c     Initialize grid cnts to zero
 
-      do 10 i = 1,(M1*M2)
+      do i = 1,(M1*M2)
          gcnts(i) = dble(0)
-10    continue
+      end do
 
       delta1 = (b1 - a1)/(M1 - 1)
       delta2 = (b2 - a2)/(M2 - 1)
-      do 20 i = 1,n
+      do i = 1,n
          lxi1 = ((X(i) - a1)/delta1) + 1
          lxi2 = ((X(n+i) - a2)/delta2) + 1
 
@@ -48,7 +48,7 @@ c        Find the integer part of "lxi1" and "lxi2"
                endif
             endif
          endif
-20    continue
+      end do
 
       return
       end
