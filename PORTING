@@ -238,9 +238,10 @@ Add Note field in DESCRIPTION
 Version 2.23-19
 ===============
 
+[Unreleased]
+
 src/rlbin.f: issue in locpoly()  reported by Peter Dalgaard
 tests/locpoly.R: regression test for the above.
-[Unreleased]
 
 Version 2.23-20
 ===============
@@ -274,3 +275,14 @@ Version 2.23-24
 Use DO..END DO in Fortran code.
 Update de translations.
 
+Version 2.23-25
+===============
+
+[Unreleased]
+
+locpoly() allowed multiple bandwidths but did not check <= 0 correctly.
+
+Version 2.23-26
+===============
+
+Change maintainer email address.

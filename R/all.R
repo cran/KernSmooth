@@ -607,7 +607,7 @@ locpoly <- function(x, y, drv = 0L, degree, kernel = "normal",
 
 {
     ## Install safeguard against non-positive bandwidths:
-    if (!missing(bandwidth) && bandwidth <= 0)
+    if (!missing(bandwidth) && any(bandwidth <= 0))
         stop("'bandwidth' must be strictly positive")
 
     drv <- as.integer(drv)
